@@ -9,4 +9,4 @@ import"./assets/modulepreload-polyfill-B5Qt9EMX.js";import{S as t}from"./assets/
   </a>
 </li>
 `,n=i.map(o=>c(o)).join("");e.galleryList.insertAdjacentHTML("beforeend",n);new t(".gallery-link",{captionsData:"alt",captionDelay:250});
-//# sourceMappingURL=1-gallery.js.map
+//# sourceMappingURL=1-timer.js.map
