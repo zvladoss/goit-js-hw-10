@@ -1,14 +1,24 @@
 <link rel="stylesheet" href="./css/2-snackbar.css" />
 <p><a href="./index.html">Go Back</a></p>
-<form class="feedback-form" autocomplete="off">
+<form class="form">
   <label>
-    Email
-    <input type="email" name="email" autofocus />
+    Delay (ms)
+    <input type="number" name="delay" required />
   </label>
-  <label>
-    Message
-    <textarea name="message" rows="8"></textarea>
-  </label>
-  <button type="submit">Submit</button>
+
+  <fieldset>
+    <legend>State</legend>
+    <label>
+      <input type="radio" name="state" value="fulfilled" required />
+      Fulfilled
+    </label>
+    <label>
+      <input type="radio" name="state" value="rejected" required />
+      Rejected
+    </label>
+  </fieldset>
+
+  <button type="submit">Create notification</button>
 </form>
+
 <script type="module" src="./js/2-snackbar.js"></script>
