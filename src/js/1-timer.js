@@ -11,24 +11,22 @@ const input = document.querySelector('input');
 
 let userSelectedDate = null;
 let timerInterval = null;
-startBtn.classList.add('btn-disabled');
+startBtn.classList.add('btn-disabled', 'start-btn');
 
 datePicker.addEventListener('input', () => (startBtn.disabled = false));
 
 const showError = message =>
   iziToast.error({
+    title: 'Error',
+    titleColor: '#ffffff',
     message,
     iconUrl: icon,
     position: 'topRight',
     backgroundColor: '#EF4040',
-    // overlayClose: true,
-    // overlayColor: 'red',
-    color: '#FFBEBE',
-    messageColor: 'white',
-    messageSize: '16',
-    messageLineHeight: '24',
-    theme: 'light',
+    close: true,
+    overlayClose: false,
     progressBarColor: '#B51B1B',
+    theme: 'light',
     timeout: 5000,
   });
 
