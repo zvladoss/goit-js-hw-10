@@ -15,6 +15,7 @@ let timerInterval = null;
 const disableStartBtn = () => {
   startBtn.classList.add('btn-disabled');
   startBtn.disabled = true;
+  btnStart.classList.remove('start-btn');
 };
 
 const enableStartBtn = () => {
