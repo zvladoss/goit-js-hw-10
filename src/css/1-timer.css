@@ -14,7 +14,7 @@ body {
 p {
   margin-bottom: 16px;
 }
-button.start-btn {
+.start-btn {
   font-family: inherit;
 
   font-weight: 500;
@@ -30,7 +30,7 @@ button.start-btn {
   cursor: pointer;
   width: 75px;
 }
-.btn-disabled:hover {
+.start-btn:hover {
   color: #fff;
   background-color: #6c8cff;
 }
@@ -38,6 +38,18 @@ button.start-btn {
 button.btn-disabled {
   background-color: #cfcfcf;
   color: #989898;
+  font-family: inherit;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  border-radius: 8px;
+  padding: 8px 16px;
+  outline: transparent;
+  border: transparent;
+  cursor: pointer;
+  width: 75px;
 }
 .flatpickr-input {
   font-family: inherit;

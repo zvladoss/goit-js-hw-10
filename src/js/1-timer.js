@@ -7,13 +7,25 @@ const daysEl = document.querySelector('[data-days]');
 const hoursEl = document.querySelector('[data-hours]');
 const minutesEl = document.querySelector('[data-minutes]');
 const secondsEl = document.querySelector('[data-seconds]');
-const input = document.querySelector('input');
+const btnStart = document.querySelector('button');
 
 let userSelectedDate = null;
 let timerInterval = null;
-startBtn.classList.add('btn-disabled', 'start-btn');
 
-datePicker.addEventListener('input', () => (startBtn.disabled = false));
+const disableStartBtn = () => {
+  startBtn.classList.add('btn-disabled');
+  startBtn.disabled = true;
+};
+
+const enableStartBtn = () => {
+  startBtn.classList.remove('btn-disabled');
+  startBtn.disabled = false;
+  btnStart.classList.add('start-btn');
+};
+
+disableStartBtn();
+
+datePicker.addEventListener('input', () => disableStartBtn());
 
 const showError = message =>
   iziToast.error({
@@ -35,21 +47,20 @@ const options = {
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
-  onChange([selectedDate]) {
+  onClose([selectedDate]) {
     const now = new Date();
     if (selectedDate <= now) {
       showError('Please choose a date in the future');
-      startBtn.classList.add('btn-disabled');
     } else {
       userSelectedDate = selectedDate;
-      startBtn.classList.remove('btn-disabled');
+      enableStartBtn();
     }
   },
 };
 flatpickr(datePicker, options);
 
 startBtn.addEventListener('click', () => {
-  startBtn.classList.add('btn-disabled');
+  disableStartBtn();
   datePicker.disabled = true;
   timerInterval = setInterval(updateTimer, 1000);
   updateTimer();
@@ -60,7 +71,8 @@ const updateTimer = () => {
   if (timeDiff <= 0) {
     clearInterval(timerInterval);
     datePicker.disabled = false;
-    startBtn.disabled = true;
+    disableStartBtn();
+
     updateDisplay(0, 0, 0, 0);
     return;
   }
